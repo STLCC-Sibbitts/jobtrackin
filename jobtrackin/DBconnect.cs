@@ -82,10 +82,11 @@ namespace jobtrackin
 			return retVal;
 		}
 
-		public static void userQuery(string uId, out string[] userData)
+		public void userQuery(string uId, string sqlQry, out string[] userData)
 		{
-			String sqlQry = "SELECT * FROM jobUsers WHERE userID='" + uId + "'";
-			using (MySqlConnection dbConn = new MySqlConnection(sqlQry))
+			userData = new string[10];
+
+			using (MySqlConnection dbConn = new MySqlConnection(dbconnString))
 			{
 				dbConn.Open(); //open the connection
 
@@ -108,7 +109,6 @@ namespace jobtrackin
 				if (dbReader.HasRows)
 				{
 					dbReader.Read();
-					userData = new string[9];
 					userData[0] = dbReader.GetString(0);
 					userData[1] = dbReader.GetString(1);
 					userData[2] = dbReader.GetString(2);
@@ -119,34 +119,8 @@ namespace jobtrackin
 					userData[7] = dbReader.GetString(7);
 					userData[8] = dbReader.GetString(8);
 					userData[9] = dbReader.GetString(9);
-					//userData.Clear();
-					//userData.Columns.Add("userID");
-					//userData.Columns.Add("username");
-					//userData.Columns.Add("password");
-					//userData.Columns.Add("firstName");
-					//userData.Columns.Add("lastName");
-					//userData.Columns.Add("socLastFour");
-					//userData.Columns.Add("email");
-					//userData.Columns.Add("photoPath");
-					//userData.Columns.Add("resumePath");
-					//userData.Columns.Add("permission");
-					//DataRow uidRow = userData.NewRow();
-
-					//dbReader.Read(); //We should now have our single user record.
-					//uidRow["userID"] = dbReader.GetString(0);
-					//uidRow["username"] = dbReader.GetString(1);
-					//uidRow["password"] = dbReader.GetString(2);
-					//uidRow["firstName"] = dbReader.GetString(3);
-					//uidRow["lastName"] = dbReader.GetString(4);
-					//uidRow["socLastFour"] = dbReader.GetString(5);
-					//uidRow["email"] = dbReader.GetString(6);
-					//uidRow["photoPath"] = dbReader.GetString(7);
-					//uidRow["resumePath"] = dbReader.GetString(8);
-					//uidRow["permission"] = dbReader.GetString(9);
 					dbConn.Close();
 				}
-				//return userDs.Tables[0];
-				//}
 			}
 		}
 	}

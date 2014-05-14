@@ -32,7 +32,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdiJTMain));
 			this.tabControl = new System.Windows.Forms.TabControl();
 			this.tabLogin = new System.Windows.Forms.TabPage();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.grbxLogin = new System.Windows.Forms.GroupBox();
 			this.btnLogin = new System.Windows.Forms.Button();
 			this.btnClear = new System.Windows.Forms.Button();
 			this.tbPassword = new System.Windows.Forms.TextBox();
@@ -50,6 +50,7 @@
 			this.tabAppointments = new System.Windows.Forms.TabPage();
 			this.label7 = new System.Windows.Forms.Label();
 			this.tabSettings = new System.Windows.Forms.TabPage();
+			this.label8 = new System.Windows.Forms.Label();
 			this.btnPanel = new System.Windows.Forms.Panel();
 			this.lblStatusArea = new System.Windows.Forms.Label();
 			this.btnSettings = new System.Windows.Forms.Button();
@@ -63,12 +64,13 @@
 			this.lblMessageCtr = new System.Windows.Forms.Label();
 			this.tabControl.SuspendLayout();
 			this.tabLogin.SuspendLayout();
-			this.groupBox1.SuspendLayout();
+			this.grbxLogin.SuspendLayout();
 			this.tabOverview.SuspendLayout();
 			this.tabCompanies.SuspendLayout();
 			this.tabContacts.SuspendLayout();
 			this.tabCallLog.SuspendLayout();
 			this.tabAppointments.SuspendLayout();
+			this.tabSettings.SuspendLayout();
 			this.btnPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -89,7 +91,7 @@
 			// 
 			// tabLogin
 			// 
-			this.tabLogin.Controls.Add(this.groupBox1);
+			this.tabLogin.Controls.Add(this.grbxLogin);
 			this.tabLogin.Location = new System.Drawing.Point(4, 22);
 			this.tabLogin.Name = "tabLogin";
 			this.tabLogin.Padding = new System.Windows.Forms.Padding(3);
@@ -98,22 +100,22 @@
 			this.tabLogin.Text = "Login";
 			this.tabLogin.UseVisualStyleBackColor = true;
 			// 
-			// groupBox1
+			// grbxLogin
 			// 
-			this.groupBox1.Controls.Add(this.btnLogin);
-			this.groupBox1.Controls.Add(this.btnClear);
-			this.groupBox1.Controls.Add(this.tbPassword);
-			this.groupBox1.Controls.Add(this.tbUsername);
-			this.groupBox1.Controls.Add(this.label2);
-			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox1.Location = new System.Drawing.Point(348, 188);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(476, 229);
-			this.groupBox1.TabIndex = 0;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Enter User Information:";
+			this.grbxLogin.Controls.Add(this.btnLogin);
+			this.grbxLogin.Controls.Add(this.btnClear);
+			this.grbxLogin.Controls.Add(this.tbPassword);
+			this.grbxLogin.Controls.Add(this.tbUsername);
+			this.grbxLogin.Controls.Add(this.label2);
+			this.grbxLogin.Controls.Add(this.label1);
+			this.grbxLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.grbxLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.grbxLogin.Location = new System.Drawing.Point(348, 188);
+			this.grbxLogin.Name = "grbxLogin";
+			this.grbxLogin.Size = new System.Drawing.Size(476, 229);
+			this.grbxLogin.TabIndex = 0;
+			this.grbxLogin.TabStop = false;
+			this.grbxLogin.Text = "Enter User Information:";
 			// 
 			// btnLogin
 			// 
@@ -143,6 +145,7 @@
 			this.tbPassword.PasswordChar = '*';
 			this.tbPassword.Size = new System.Drawing.Size(244, 22);
 			this.tbPassword.TabIndex = 1;
+			this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPassword_KeyPress);
 			// 
 			// tbUsername
 			// 
@@ -275,12 +278,23 @@
 			// 
 			// tabSettings
 			// 
+			this.tabSettings.Controls.Add(this.label8);
 			this.tabSettings.Location = new System.Drawing.Point(4, 22);
 			this.tabSettings.Name = "tabSettings";
 			this.tabSettings.Size = new System.Drawing.Size(1177, 583);
 			this.tabSettings.TabIndex = 6;
 			this.tabSettings.Text = "Settings";
 			this.tabSettings.UseVisualStyleBackColor = true;
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label8.Location = new System.Drawing.Point(8, 9);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(268, 24);
+			this.label8.TabIndex = 1;
+			this.label8.Text = "Job Hunt Tracking -Settings";
 			// 
 			// btnPanel
 			// 
@@ -301,7 +315,7 @@
 			// lblStatusArea
 			// 
 			this.lblStatusArea.Font = new System.Drawing.Font("SketchFlow Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblStatusArea.ForeColor = System.Drawing.Color.Navy;
+			this.lblStatusArea.ForeColor = System.Drawing.Color.DarkOrange;
 			this.lblStatusArea.Location = new System.Drawing.Point(741, 23);
 			this.lblStatusArea.Name = "lblStatusArea";
 			this.lblStatusArea.Size = new System.Drawing.Size(254, 70);
@@ -413,11 +427,12 @@
 			this.Name = "mdiJTMain";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Job Huntin\' Tracker  by: It\'s Just Code";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mdiJTMain_FormClosing);
 			this.Load += new System.EventHandler(this.mdiJTMain_Load);
 			this.tabControl.ResumeLayout(false);
 			this.tabLogin.ResumeLayout(false);
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
+			this.grbxLogin.ResumeLayout(false);
+			this.grbxLogin.PerformLayout();
 			this.tabOverview.ResumeLayout(false);
 			this.tabOverview.PerformLayout();
 			this.tabCompanies.ResumeLayout(false);
@@ -428,6 +443,8 @@
 			this.tabCallLog.PerformLayout();
 			this.tabAppointments.ResumeLayout(false);
 			this.tabAppointments.PerformLayout();
+			this.tabSettings.ResumeLayout(false);
+			this.tabSettings.PerformLayout();
 			this.btnPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -442,7 +459,7 @@
 		private System.Windows.Forms.TabPage tabContacts;
 		private System.Windows.Forms.TabPage tabCallLog;
 		private System.Windows.Forms.TabPage tabAppointments;
-		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.GroupBox grbxLogin;
 		private System.Windows.Forms.Button btnLogin;
 		private System.Windows.Forms.Button btnClear;
 		private System.Windows.Forms.TextBox tbPassword;
@@ -466,5 +483,6 @@
 		private System.Windows.Forms.TabPage tabSettings;
 		private System.Windows.Forms.Button btnSettings;
 		private System.Windows.Forms.Label lblStatusArea;
+		private System.Windows.Forms.Label label8;
 	}
 }

@@ -18,7 +18,17 @@ namespace jobtrackin
 	{
 		public bool loggedIn = false;
 		public string[] loggedInUser;
-		 
+		public string jtUserId;
+		public string jtusername;
+		public string jtpassword;
+		public string jtfirstName;
+		public string jtlastName;
+		public string jtsocLastFour;
+		public string jtemail;
+		public string jtphotoPath;
+		public string jtresumePath;
+		public string jtpermission;	
+
 		private void mdiJTMain_Load(object sender, EventArgs e)
 		{
 			lblMessageCtr.IsAccessible = false;
@@ -146,14 +156,35 @@ namespace jobtrackin
 			if (userId != "false")
 			{
 				string[] loggedInUser;
+				String sqlQry = "SELECT * FROM jobUsers WHERE userID='" + userId + "';";
 				//MessageBox.Show("Login was successful!");
-				dbConn.userQuery(userId, out loggedInUser);
+				dbConn.userQuery(userId, sqlQry, out loggedInUser);
 				//{
 					
 					//DataTable loggedInUser = dbConn.userQuery(userId);
 				int pos = Array.IndexOf(loggedInUser, userId);
 				if (pos > -1)
 				{
+					jtUserId = loggedInUser[0];
+					jtusername = loggedInUser[1];
+					jtpassword = loggedInUser[2];
+					jtfirstName = loggedInUser[3];
+					jtlastName = loggedInUser[4];
+					jtsocLastFour = loggedInUser[5];
+					jtemail = loggedInUser[6];
+					jtphotoPath = loggedInUser[7];
+					jtresumePath = loggedInUser[8];
+					jtpermission = loggedInUser[9];
+
+					if (jtpermission == "admin")
+					{
+						lblStatusArea.Text = "Welcome " + jtusername + "!\n\n You are an '" + jtpermission + "'.";
+						btnSettings.Visible = true;
+					}
+					else
+					{
+						lblStatusArea.Text = "Welcome " + jtusername + "!\n\nYou have normal access.";
+					}
 					loggedIn = true;
 					lblMessageCtr.Text = "Login Successful!";
 					this.tabControl.SelectedTab = tabOverview;
@@ -175,29 +206,7 @@ namespace jobtrackin
 
 		private void btnExit_Click(object sender, EventArgs e)
 		{
-			string message = "Quit the Application?";
-			string caption = "Are you SURE you want to quit?";
-			MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-			DialogResult result = MessageBox.Show(this, message, caption, buttons);
-			// login box without logging in - if so then the 
-			// app must close
-			if (result == DialogResult.Yes)
-			{
-				// Closes the whole application. 
-				Application.Exit();
-			}
-			else
-			{
-				//result == DialogResult.No;
-				if (!loggedIn)
-				{
-					this.tabControl.SelectedTab = tabLogin;
-				}
-				else
-				{
-					this.tabControl.SelectedTab = tabOverview;
-				}
-			}
+			Application.Exit();
 		}
 
 		private void btnClear_Click(object sender, EventArgs e)
@@ -217,6 +226,42 @@ namespace jobtrackin
 			this.lblMessageCtr.Text = "";
 		}
 
+		private void tbPassword_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == (char)Keys.Return)
+			{
+				btnLogin.PerformClick();
+			}
+		}
+
+		private void mdiJTMain_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			string message = "Quit the Application?";
+			string caption = "Are you SURE you want to quit?";
+			MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+			DialogResult result = MessageBox.Show(this, message, caption, buttons);
+			// login box without logging in - if so then the 
+			// app must close
+			if (result == DialogResult.No)
+			{
+				e.Cancel = true;
+				//result == DialogResult.No;
+				if (!loggedIn)
+				{
+					this.tabControl.SelectedTab = tabLogin;
+				}
+				else
+				{
+					this.tabControl.SelectedTab = tabOverview;
+				}
+			}
+			//else
+			//{
+			//	// Closes the whole application. 
+			//	Application.Exit();
+			//}
+			//btnExit.PerformClick();
+		}
 	
 	
 	
