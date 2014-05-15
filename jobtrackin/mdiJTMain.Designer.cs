@@ -40,6 +40,7 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.tabOverview = new System.Windows.Forms.TabPage();
+			this.dgvOverview = new System.Windows.Forms.DataGridView();
 			this.label3 = new System.Windows.Forms.Label();
 			this.tabCompanies = new System.Windows.Forms.TabPage();
 			this.label4 = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
 			this.tabSettings = new System.Windows.Forms.TabPage();
 			this.label8 = new System.Windows.Forms.Label();
 			this.btnPanel = new System.Windows.Forms.Panel();
+			this.lblTopMsgCtr = new System.Windows.Forms.Label();
 			this.lblStatusArea = new System.Windows.Forms.Label();
 			this.btnSettings = new System.Windows.Forms.Button();
 			this.btnAppointments = new System.Windows.Forms.Button();
@@ -66,6 +68,7 @@
 			this.tabLogin.SuspendLayout();
 			this.grbxLogin.SuspendLayout();
 			this.tabOverview.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvOverview)).BeginInit();
 			this.tabCompanies.SuspendLayout();
 			this.tabContacts.SuspendLayout();
 			this.tabCallLog.SuspendLayout();
@@ -176,6 +179,7 @@
 			// 
 			// tabOverview
 			// 
+			this.tabOverview.Controls.Add(this.dgvOverview);
 			this.tabOverview.Controls.Add(this.label3);
 			this.tabOverview.Location = new System.Drawing.Point(4, 22);
 			this.tabOverview.Name = "tabOverview";
@@ -185,6 +189,14 @@
 			this.tabOverview.Text = "Overview";
 			this.tabOverview.UseVisualStyleBackColor = true;
 			this.tabOverview.Enter += new System.EventHandler(this.tabOverview_Enter);
+			// 
+			// dgvOverview
+			// 
+			this.dgvOverview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvOverview.Location = new System.Drawing.Point(12, 59);
+			this.dgvOverview.Name = "dgvOverview";
+			this.dgvOverview.Size = new System.Drawing.Size(957, 467);
+			this.dgvOverview.TabIndex = 1;
 			// 
 			// label3
 			// 
@@ -299,6 +311,7 @@
 			// btnPanel
 			// 
 			this.btnPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.btnPanel.Controls.Add(this.lblTopMsgCtr);
 			this.btnPanel.Controls.Add(this.lblStatusArea);
 			this.btnPanel.Controls.Add(this.btnSettings);
 			this.btnPanel.Controls.Add(this.btnAppointments);
@@ -312,11 +325,22 @@
 			this.btnPanel.Size = new System.Drawing.Size(1181, 120);
 			this.btnPanel.TabIndex = 6;
 			// 
+			// lblTopMsgCtr
+			// 
+			this.lblTopMsgCtr.Font = new System.Drawing.Font("SketchFlow Print", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblTopMsgCtr.ForeColor = System.Drawing.Color.Red;
+			this.lblTopMsgCtr.Location = new System.Drawing.Point(741, 96);
+			this.lblTopMsgCtr.Name = "lblTopMsgCtr";
+			this.lblTopMsgCtr.Size = new System.Drawing.Size(254, 16);
+			this.lblTopMsgCtr.TabIndex = 10;
+			this.lblTopMsgCtr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
 			// lblStatusArea
 			// 
+			this.lblStatusArea.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
 			this.lblStatusArea.Font = new System.Drawing.Font("SketchFlow Print", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblStatusArea.ForeColor = System.Drawing.Color.DarkOrange;
-			this.lblStatusArea.Location = new System.Drawing.Point(741, 23);
+			this.lblStatusArea.Location = new System.Drawing.Point(741, 10);
 			this.lblStatusArea.Name = "lblStatusArea";
 			this.lblStatusArea.Size = new System.Drawing.Size(254, 70);
 			this.lblStatusArea.TabIndex = 9;
@@ -435,6 +459,7 @@
 			this.grbxLogin.PerformLayout();
 			this.tabOverview.ResumeLayout(false);
 			this.tabOverview.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvOverview)).EndInit();
 			this.tabCompanies.ResumeLayout(false);
 			this.tabCompanies.PerformLayout();
 			this.tabContacts.ResumeLayout(false);
@@ -484,5 +509,7 @@
 		private System.Windows.Forms.Button btnSettings;
 		private System.Windows.Forms.Label lblStatusArea;
 		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.DataGridView dgvOverview;
+		private System.Windows.Forms.Label lblTopMsgCtr;
 	}
 }

@@ -123,5 +123,49 @@ namespace jobtrackin
 				}
 			}
 		}
+
+
+
+
+		//public DataSet SelectRows(DataSet dataset,string connection,string query) 
+		public DataSet dbQry(string type, string uId, string sqlQry, DataSet jtDs, DataGridView dgv)
+		{
+			//We may only be using one of these...
+			MySqlConnection dbConn = new MySqlConnection(dbconnString);
+			MySqlDataAdapter jtDa = new MySqlDataAdapter();
+			jtDa.MissingSchemaAction = MissingSchemaAction.AddWithKey; //We need/WANT the index keys in the result set
+			//MySqlCommand cmd = new MySqlCommand();
+			switch (type)
+			{
+				case "select":
+					jtDa.SelectCommand = new MySqlCommand(sqlQry, dbConn);
+					//jtDa.InsertCommand.Parameters.AddWithValue("@userId", uId); //Will get this part working when there is more time.
+					//jtDa.InsertCommand.Prepare(); //Will get this part working when there is more time.
+					//DataSet jtDs = new DataSet();
+					jtDa.Fill(jtDs);
+					//DataTable jtDt = jtDs.Tables["jobInterviews"];
+					dgv.DataSource = jtDs.Tables[0];
+					//dgv.DataMember = jtDt.TableName[0];
+					return jtDs;
+					//break;
+				case "insert":
+					jtDa.InsertCommand = new MySqlCommand(sqlQry, dbConn);
+					return jtDs;
+					//break;
+				case "update":
+					jtDa.UpdateCommand = new MySqlCommand(sqlQry, dbConn);
+					return jtDs;
+					//break;
+				case "delete":
+					jtDa.DeleteCommand = new MySqlCommand(sqlQry, dbConn);
+					return jtDs;
+					//break;
+				default:
+					return jtDs;
+					//break;
+			}
+		}
+	
+	
 	}
 }

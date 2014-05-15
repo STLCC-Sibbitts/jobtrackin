@@ -25,10 +25,22 @@ namespace jobtrackin.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=sql2.freemysqlhosting.net;Database=sql239146;Uid=sql239146;Pwd=eS5!sX1%;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=sql2.freemysqlhosting.net;Database=sql239146;Uid=sql239146;Pwd=eS5!sX1%;Co" +
+            "nnect Timeout=3000")]
         public string connectionString {
             get {
                 return ((string)(this["connectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=sql2.freemysqlhosting.net;user id=sql239146;password=eS5!sX1%;persistsecur" +
+            "ityinfo=True;database=sql239146")]
+        public string freeMySqlHostingConnectionString {
+            get {
+                return ((string)(this["freeMySqlHostingConnectionString"]));
             }
         }
     }

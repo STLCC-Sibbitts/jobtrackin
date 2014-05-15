@@ -31,6 +31,8 @@ namespace jobtrackin
 
 		private void mdiJTMain_Load(object sender, EventArgs e)
 		{
+			// TODO: This line of code loads data into the 'overviewDataSet.jobInterviews' table. You can move, or remove it, as needed.
+			//this.jobInterviewsTableAdapter.Fill(this.overviewDataSet.jobInterviews);
 			lblMessageCtr.IsAccessible = false;
 			System.Windows.Forms.ToolTip jhtToolTips = new System.Windows.Forms.ToolTip();
 
@@ -148,23 +150,20 @@ namespace jobtrackin
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
 			lblMessageCtr.Text = "Checking User information...";
+			lblTopMsgCtr.Text = "Checking User information...";
 
 			DBconnect dbConn = new DBconnect();
 			string userId = dbConn.Login(tbUsername.Text, tbPassword.Text);
-			//BigInteger bigIntReturned = new BigInteger();
-			//bool isInt = BigInteger.TryParse(userId, out bigIntReturned);
 			if (userId != "false")
 			{
 				string[] loggedInUser;
 				String sqlQry = "SELECT * FROM jobUsers WHERE userID='" + userId + "';";
 				//MessageBox.Show("Login was successful!");
 				dbConn.userQuery(userId, sqlQry, out loggedInUser);
-				//{
-					
-					//DataTable loggedInUser = dbConn.userQuery(userId);
 				int pos = Array.IndexOf(loggedInUser, userId);
 				if (pos > -1)
 				{
+					//Here we set the variables in the form since the array may/may not be avail globally.
 					jtUserId = loggedInUser[0];
 					jtusername = loggedInUser[1];
 					jtpassword = loggedInUser[2];
@@ -175,6 +174,7 @@ namespace jobtrackin
 					jtphotoPath = loggedInUser[7];
 					jtresumePath = loggedInUser[8];
 					jtpermission = loggedInUser[9];
+					loggedIn = true;
 
 					if (jtpermission == "admin")
 					{
@@ -185,8 +185,8 @@ namespace jobtrackin
 					{
 						lblStatusArea.Text = "Welcome " + jtusername + "!\n\nYou have normal access.";
 					}
-					loggedIn = true;
 					lblMessageCtr.Text = "Login Successful!";
+					lblTopMsgCtr.Text = "Login Successful!";
 					this.tabControl.SelectedTab = tabOverview;
 				}
 				else
@@ -195,13 +195,6 @@ namespace jobtrackin
 					Application.Exit();
 				}
 			}
-			//}
-			//else
-			//{
-			//	MessageBox.Show("Login failed! Username/Password was incorrect!\nPlease try again.");
-			//	tabControl.SelectedTab = tabLogin;
-			//	tbUsername.Focus();
-			//}
 		}
 
 		private void btnExit_Click(object sender, EventArgs e)
@@ -219,17 +212,29 @@ namespace jobtrackin
 		private void tabOverview_Enter(object sender, EventArgs e)
 		{
 			this.timer1.Start(); //This will make the message dissappear after a set time.
+			DBconnect dbConn = new DBconnect();
+			DataSet overviewDs = new DataSet();
+			string qryType = "select";
+			//SELECT m.id as mid, c.id as cid, u.id as uid 
+			//FROM members m 
+			//left join companies c on m.id=c.id 
+			//left join users u on m.id=u.id
+			string sqlQry = "SELECT ji.*, jc.companyName FROM jobInterviews as ji LEFT JOIN jobCompanies as jc ON jc.userID = ji.userID WHERE ji.userID='" + jtUserId + "';";
+			dbConn.dbQry(qryType, jtUserId, sqlQry, overviewDs,dgvOverview);
 		}
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
 			this.lblMessageCtr.Text = "";
+			this.lblTopMsgCtr.Text = "";
 		}
 
 		private void tbPassword_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (e.KeyChar == (char)Keys.Return)
 			{
+				//lblMessageCtr.Text = "Checking User information...";
+				//lblTopMsgCtr.Text = "Checking User information...";
 				btnLogin.PerformClick();
 			}
 		}

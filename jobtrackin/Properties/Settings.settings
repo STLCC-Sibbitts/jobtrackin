@@ -3,7 +3,15 @@
   <Profiles />
   <Settings>
     <Setting Name="connectionString" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Server=sql2.freemysqlhosting.net;Database=sql239146;Uid=sql239146;Pwd=eS5!sX1%;</Value>
+      <Value Profile="(Default)">Server=sql2.freemysqlhosting.net;Database=sql239146;Uid=sql239146;Pwd=eS5!sX1%;Connect Timeout=3000</Value>
+    </Setting>
+    <Setting Name="freeMySqlHostingConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;server=sql2.freemysqlhosting.net;user id=sql239146;password=eS5!sX1%;persistsecurityinfo=True;database=sql239146&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">server=sql2.freemysqlhosting.net;user id=sql239146;password=eS5!sX1%;persistsecurityinfo=True;database=sql239146</Value>
     </Setting>
   </Settings>
 </SettingsFile>

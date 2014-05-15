@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>jobhunt.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data.Entity.EF5, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
@@ -52,6 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBconnect.cs" />
+    <Compile Include="jtDataSetAll.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>jtDataSetAll.xsd</DependentUpon>
+    </Compile>
     <Compile Include="mdiJTMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +67,11 @@
       <DependentUpon>mdiJTMain.cs</DependentUpon>
     </Compile>
     <Compile Include="JTApp.cs" />
+    <Compile Include="overviewDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>overviewDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="mdiJTMain.resx">
       <DependentUpon>mdiJTMain.cs</DependentUpon>
@@ -73,6 +86,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="jtDataSetAll.xsc">
+      <DependentUpon>jtDataSetAll.xsd</DependentUpon>
+    </None>
+    <None Include="jtDataSetAll.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>jtDataSetAll.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="jtDataSetAll.xss">
+      <DependentUpon>jtDataSetAll.xsd</DependentUpon>
+    </None>
+    <None Include="overviewDataSet.xsc">
+      <DependentUpon>overviewDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="overviewDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>overviewDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="overviewDataSet.xss">
+      <DependentUpon>overviewDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -127,6 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="glossy_companies_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="jobhunt.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
