@@ -1,0 +1,236 @@
+/* ========================================================
+Panel Slides Styles
+===================================================== */
+
+.tab {
+    height: 42px;
+    position: relative;
+    top: 0;
+    z-index: 999;
+}
+
+.tab ul.login {
+    display: block;
+    position: relative;
+    width: 300px;
+    clear: right;
+    height: 42px;
+    line-height: 48px;
+    margin: -2px 0 0 0;
+    left: 251%;
+    color: #fff;
+    font-size: 1.5em;
+    background-color: #29465B;
+    border-left: 1px #111 solid;
+    border-bottom: 1px #111 solid;
+    border-right: 1px #111 solid;
+    
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-bottom-right-radius: 10px;
+    -o-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    -o-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.tab ul.login li {
+    text-align: center;
+    padding: 0 6px;
+    display: block;
+    float: left;
+    height: 42px;
+    background-color: #29465B;
+}
+
+.tab ul.login li a { color: #EA680B; }
+.tab ul.login li a:hover { color: #fff; }
+.tab a.open, .tab a.close {
+    height: 20px;
+    line-height: 20px !important;
+    padding-left: 15px !important;
+    cursor: pointer;
+    display: block;
+    width: 150px;
+    position: relative;
+    top: 11px;
+    text-decoration: none;
+}
+
+/* ========================================================
+The Slide Styles
+===================================================== */
+#toppanel {
+    width: 320px;
+    z-index: 999;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#panelSlide {
+    position: relative;
+    left: 245%;
+    width: 100%;
+    color: #fff;
+    background: #29465B;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+    display: none;
+    border-left: 1px #111 solid;
+    border-bottom: 1px #111 solid;
+    border-right: 1px #111 solid;
+    
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-bottom-right-radius: 10px;
+    -o-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    -o-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#panelSlide h1, #panelSlide h2 {
+    margin: 0;
+    text-shadow: -1px 1px 0 #fff, -2px 2px 0 #ADADAD;
+}
+#panelSlide h1 {
+    color: #EA680B;
+    font-size: 24px;
+    padding: 5px 0 10px;
+    border-bottom: 1px dotted #414141;
+    border-top: 2px solid #414141;
+    font-size: 28px;
+    line-height: 28px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#panelSlide h2{
+    color: #617797;
+    font-size: 20px;
+    padding: 10px 0 5px;
+    letter-spacing: 1px;
+}
+
+#panelSlide p {
+    margin: 5px 0;
+    padding: 0;
+}
+
+#panelSlide a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#panelSlide a:hover {
+    color: #EA680B;
+}
+
+#panelSlide .content {
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 15px;
+    text-align: left;
+    font-size: 1.25em;
+}
+
+#panelSlide .content .left {
+    width: 95%;
+    float: left;
+    padding: 0 10px;
+ }
+
+#panelSlide .content .right {  }
+#panelSlide .content form {
+    margin: 0 0 10px 0;
+}
+
+#panelSlide .content label {
+    float: left;
+    padding-top: 8px;
+    clear: both;
+    width: 280px;
+    display: block;
+}
+
+#panelSlide .content input.field {
+    border: 1px #1A1A1A solid;
+    background: #414141;
+    margin-right: 5px;
+    margin-top: 4px;
+    width: 280px;
+    color: white;
+    height: 22px;
+}
+
+#panelSlide .content input:focus.field {
+    background: #545454;
+}
+
+/* ========================================================
+            Button Styles
+===================================================== */
+#panelSlide .button {
+    background-color: #222;
+    background-image: -webkit-linear-gradient(hsla(0,0%,100%,.15), hsla(0,0%,0%,0));
+    background-image: -moz-linear-gradient(hsla(0,0%,100%,.15), hsla(0,0%,0%,0));
+    background-image: -ms-linear-gradient(hsla(0,0%,100%,.15), hsla(0,0%,0%,0));
+    background-image: -o-linear-gradient(hsla(0,0%,100%,.15), hsla(0,0%,0%,0));
+    background-image: linear-gradient(hsla(0,0%,100%,.15), hsla(0,0%,0%,0));
+    border: 1px solid #111;
+    color: #999999;
+    cursor: pointer;
+    display: inline-block;
+    font: 18px 'Yanone Kaffeesatz';
+    line-height: 18px;
+    margin: 6px 0;
+    padding: 2px 9px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px hsla(0,0%,0%,.8);
+    vertical-align: top;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+       border-radius: 3px;
+    -webkit-box-shadow: 0 1px 4px hsla(0,0%,0%,.4),
+        inset 0 1px 0 hsla(0,0%,100%,.2);
+    -moz-box-shadow: 0 1px 4px hsla(0,0%,0%,.4),
+        inset 0 1px 0 hsla(0,0%,100%,.2);
+    -o-box-shadow: 0 1px 4px hsla(0,0%,0%,.4),
+        inset 0 1px 0 hsla(0,0%,100%,.2);
+        box-shadow: 0 1px 4px hsla(0,0%,0%,.4),
+        inset 0 1px 0 hsla(0,0%,100%,.2);
+}
+#panelSlide .button:hover, #panelSlide .button:focus {
+    background-color: #242424;
+    color: #EA680B;
+    -webkit-box-shadow: 0 1px 4px hsla(0,0%,0%,.4),
+        inset 0 1px 0 hsla(0,0%,100%,.2);
+    -moz-box-shadow: 0 1px 4px hsla(0,0%,0%,.4),
+        inset 0 1px 0 hsla(0,0%,100%,.2);
+    -o-box-shadow: 0 1px 4px hsla(0,0%,0%,.4),
+        inset 0 1px 0 hsla(0,0%,100%,.2);
+    box-shadow: 0 1px 4px hsla(0,0%,0%,.4),
+        inset 0 1px 0 hsla(0,0%,100%,.2);
+ }
+ 
+#panelSlide .button:active {
+    background-color: #202020;
+    color: #b6b6b6;
+    padding: 11px 15px 9px;
+    -webkit-box-shadow: 0 1px 0 hsla(0,0%,100%,.1),
+        inset 0 1px 4px hsla(0,0%,0%,.8);
+    -moz-box-shadow: 0 1px 0 hsla(0,0%,100%,.1),
+        inset 0 1px 4px hsla(0,0%,0%,.8);
+    -o-box-shadow: 0 1px 0 hsla(0,0%,100%,.1),
+        inset 0 1px 4px hsla(0,0%,0%,.8);
+    box-shadow: 0 1px 0 hsla(0,0%,100%,.1),
+        inset 0 1px 4px hsla(0,0%,0%,.8);
+ }
